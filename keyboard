@@ -3,8 +3,6 @@
 import os
 from evdev import InputDevice, categorize, ecodes
 from pygame import mixer
-import sounddevice as sd
-import soundfile as sf
 from pydub import AudioSegment
 from pydub.playback import play
 
@@ -14,16 +12,16 @@ dev.grab()
 mixer.init()
 
 ## Define sounds here
-#yeet = mixer.Sound('sounds/yeet.wav')
-#airhorn = mixer.Sound('sounds/airhorn.wav')
-#error = mixer.Sound('sounds/error.wav')
-#johncena = mixer.Sound('sounds/johncena.wav')
-#missionfailed = mixer.Sound('sounds/missionfailed.wav')
-#jokedrum = mixer.Sound('sounds/jokedrum.wav')
-#nope = mixer.Sound('sounds/nope.wav')
-#mynamejeff = mixer.Sound('sounds/mynamejeff.wav')
-#hallelujah = mixer.Sound('sounds/hallelujah.wav')
-#oof = mixer.Sound('sounds/oof.wav')
+yeet = mixer.Sound('sounds/yeet.wav')
+airhorn = mixer.Sound('sounds/airhorn.wav')
+error = mixer.Sound('sounds/error.wav')
+johncena = mixer.Sound('sounds/johncena.wav')
+missionfailed = mixer.Sound('sounds/missionfailed.wav')
+jokedrum = mixer.Sound('sounds/jokedrum.wav')
+nope = mixer.Sound('sounds/nope.wav')
+mynamejeff = mixer.Sound('sounds/mynamejeff.wav')
+hallelujah = mixer.Sound('sounds/hallelujah.wav')
+oof = mixer.Sound('sounds/oof.wav')
 
 ## Help function
 def showhelp():
@@ -42,17 +40,13 @@ def showhelp():
     print('O: [SOUND] hallelujah')
     print('P: [SOUND] oof')
 
-
 ## Deine keystrokes and actions
 for event in dev.read_loop():
     if event.type == ecodes.EV_KEY:
         key = categorize(event)
         if key.keystate == key.key_down:
             if key.keycode == 'KEY_Q':
-#                yeet.play()
-#                file = "yeet.mp3"
-#                os.system("mpg123 --realtime " + file)
-                song = AudioSegment.from_wav("yeet.wav")
+                song = AudioSegment.from_wav("sounds/yeet.wav")
                 play(song)
             elif key.keycode == 'KEY_W':
                 airhorn.play()
