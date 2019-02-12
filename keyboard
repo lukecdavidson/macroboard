@@ -3,8 +3,6 @@
 import os
 from evdev import InputDevice, categorize, ecodes
 from pygame import mixer
-from pydub import AudioSegment
-from pydub.playback import play
 
 os.chdir('/usr/local/share/keyboard')
 dev = InputDevice('/dev/input/event22')
@@ -46,8 +44,7 @@ for event in dev.read_loop():
         key = categorize(event)
         if key.keystate == key.key_down:
             if key.keycode == 'KEY_Q':
-                song = AudioSegment.from_wav("sounds/yeet.wav")
-                play(song)
+                yeet.play() 
             elif key.keycode == 'KEY_W':
                 airhorn.play()
             elif key.keycode == 'KEY_E':
