@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 import os
+import webbrowser
 from evdev import InputDevice, categorize, ecodes
 from pygame import mixer
 
@@ -65,6 +66,8 @@ for event in dev.read_loop():
                 oof.play()
             elif key.keycode == 'KEY_ENTER':
                 showhelp()
+            elif key.keycode == 'KEY_S';
+                webbrowser.open(https://my.wgu.edu[, new=0[, autoraise=True]])                
             elif key.keycode == 'KEY_ESC':
                 quit()
             else :
