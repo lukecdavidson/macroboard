@@ -5,8 +5,8 @@ import webbrowser
 from evdev import InputDevice, categorize, ecodes
 from pygame import mixer
 
-os.chdir('/usr/local/share/keyboard')
-dev = InputDevice('/dev/input/event22')
+os.chdir('/home/luke/.local/share/keyboard')
+dev = InputDevice('/dev/input/event2')
 dev.grab()
 mixer.init()
 
@@ -66,8 +66,8 @@ for event in dev.read_loop():
                 oof.play()
             elif key.keycode == 'KEY_ENTER':
                 showhelp()
-            elif key.keycode == 'KEY_S';
-                webbrowser.open(https://my.wgu.edu[, new=0[, autoraise=True]])                
+            elif key.keycode == 'KEY_S':
+                webbrowser.open("https://my.wgu.edu",new=2,autoraise=True)
             elif key.keycode == 'KEY_ESC':
                 quit()
             else :
