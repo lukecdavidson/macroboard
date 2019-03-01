@@ -67,7 +67,7 @@ for event in dev.read_loop():
             elif key.keycode == 'KEY_ENTER':
                 showhelp()
             elif key.keycode == 'KEY_A':
-                webbrowsers.open("https://www.youtube.com",new=2,autoraise=True)
+                webbrowser.open("https://www.youtube.com",new=2,autoraise=True)
             elif key.keycode == 'KEY_S':
                 webbrowser.open("https://my.wgu.edu",new=2,autoraise=True)
             elif key.keycode == 'KEY_ESC':
