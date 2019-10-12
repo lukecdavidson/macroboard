@@ -6,71 +6,30 @@ from evdev import InputDevice, categorize, ecodes
 from pygame import mixer
 
 os.chdir('/home/luke/.local/share/keyboard')
-dev = InputDevice('/dev/input/event2')
+#dev = InputDevice('/dev/input/event2')
+dev = InputDevice('/dev/input/by-id/usb-NOVATEK_Kensington_U+P_Keyboard-event-kbd')
 dev.grab()
 mixer.init()
 
-## Define sounds here
-yeet = mixer.Sound('sounds/yeet.wav')
-airhorn = mixer.Sound('sounds/airhorn.wav')
-error = mixer.Sound('sounds/error.wav')
-johncena = mixer.Sound('sounds/johncena.wav')
-missionfailed = mixer.Sound('sounds/missionfailed.wav')
-jokedrum = mixer.Sound('sounds/jokedrum.wav')
-nope = mixer.Sound('sounds/nope.wav')
-mynamejeff = mixer.Sound('sounds/mynamejeff.wav')
-hallelujah = mixer.Sound('sounds/hallelujah.wav')
-oof = mixer.Sound('sounds/oof.wav')
 
-## Help function
-def showhelp():
-    print('')
-    print('ASSIGNED KEYS')
-    print('ESC: Exit program')
-    print('ENTER: Show help')
-    print('Q: [SOUND] yeet')
-    print('W: [SOUND] airhorn')
-    print('E: [SOUND] error')
-    print('R: [SOUND] johncena')
-    print('T: [SOUND] missionfailed')
-    print('Y: [SOUND] jokedrum')
-    print('U: [SOUND] nope')
-    print('I: [SOUND] mynamejeff')
-    print('O: [SOUND] hallelujah')
-    print('P: [SOUND] oof')
+# Define sounds here
+bind_dict = {
+        'KEY_Q': 'sounds/yeet.wav',
+        'KEY_W': 'sounds/ballsofsteel.wav'
+        }
 
 ## Deine keystrokes and actions
 for event in dev.read_loop():
     if event.type == ecodes.EV_KEY:
         key = categorize(event)
         if key.keystate == key.key_down:
-            if key.keycode == 'KEY_Q':
-                yeet.play()
-            elif key.keycode == 'KEY_W':
-                airhorn.play()
-            elif key.keycode == 'KEY_E':
-                error.play()
-            elif key.keycode == 'KEY_R':
-                johncena.play()
-            elif key.keycode == 'KEY_T':
-                missionfailed.play()
-            elif key.keycode == 'KEY_Y':
-                jokedrum.play()
-            elif key.keycode == 'KEY_U':
-                nope.play()
-            elif key.keycode == 'KEY_I':
-                mynamejeff.play()
-            elif key.keycode == 'KEY_O':
-                hallelujah.play()
-            elif key.keycode == 'KEY_P':
-                oof.play()
-            elif key.keycode == 'KEY_ENTER':
-                showhelp()
-            elif key.keycode == 'KEY_A':
-                webbrowser.open("https://www.youtube.com",new=2,autoraise=True)
-            elif key.keycode == 'KEY_S':
-                webbrowser.open("https://my.wgu.edu",new=2,autoraise=True)
-            elif key.keycode == 'KEY_ESC':
+            if key.keycode != 'KEY_ESC':
+                if 'key.keycode' in bind_dict != true:
+                    print('Unassigned Key')
+                bind = bind_dict[key.keycode]
+                sound = mixer.Sound(bind)
+                sound.play()
+            else:
                 quit()
-            else :
-                print('Unassinged Key')
+#            else :
+#                print('Unassinged Key')
