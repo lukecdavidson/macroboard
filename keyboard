@@ -5,31 +5,40 @@ import webbrowser
 from evdev import InputDevice, categorize, ecodes
 from pygame import mixer
 
-os.chdir('/home/luke/.local/share/keyboard')
-#dev = InputDevice('/dev/input/event2')
+os.chdir('/home/luke/.local/share/keyboard/sounds')
 dev = InputDevice('/dev/input/by-id/usb-NOVATEK_Kensington_U+P_Keyboard-event-kbd')
 dev.grab()
 mixer.init()
 
 
-# Define sounds here
+# Dictionary to assign keycodes to sound files
 bind_dict = {
-        'KEY_Q': 'sounds/yeet.wav',
-        'KEY_W': 'sounds/ballsofsteel.wav'
+        'KEY_Q': 'yeet.wav',
+        'KEY_W': 'ballsofsteel.wav',
+        'KEY_E': 'https://www.youtube.com'
         }
 
-## Deine keystrokes and actions
+type_dict = {
+        'KEY_Q': 'sound',
+        'KEY_W': 'sound',
+        'KEY_E': 'web',
+        }
+
+
+## Define keystrokes and actions
 for event in dev.read_loop():
     if event.type == ecodes.EV_KEY:
         key = categorize(event)
         if key.keystate == key.key_down:
             if key.keycode != 'KEY_ESC':
-                if 'key.keycode' in bind_dict != true:
-                    print('Unassigned Key')
-                bind = bind_dict[key.keycode]
-                sound = mixer.Sound(bind)
-                sound.play()
+                if key.keycode in bind_dict:
+                    bind = bind_dict[key.keycode]
+                    if type_dict[key.keycode] == 'sound':
+                        sound = mixer.Sound(bind)
+                        sound.play()
+                    elif type_dict[key.keycode] == 'web':
+                        webbrowser.open(bind,new=2,autoraise=True)
+                else:
+                    print(key.keycode + ' is undefined')
             else:
                 quit()
-#            else :
-#                print('Unassinged Key')
