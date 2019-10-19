@@ -47,6 +47,7 @@ for event in dev.read_loop():
             if key.keycode == 'KEY_ESC':
                 quit()
             elif key.keycode == 'KEY_F12':
+                ## Call a function here to allow a user to change items in the bind_dict                
                 print('Implement rebind function here')
             else:
                 if key.keycode in bind_dict:
