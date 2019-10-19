@@ -7,7 +7,6 @@ verify_ssl = true
 
 [packages]
 evdev = "*"
-webbrowser = "*"
 
 [requires]
 python_version = "3.7"

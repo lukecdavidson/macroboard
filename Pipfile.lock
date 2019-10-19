@@ -18,7 +18,6 @@
     "default": {
         "evdev": {
             "hashes": [
-                "sha256:1b486b8b4ce361ead9492daf577e88a517deaee63ddd320f4db039fd557ff17b",
                 "sha256:b03f5e1be5b4a5327494a981b831d251a142b09e8778eda1a8b53eba91100166"
             ],
             "index": "pypi",
