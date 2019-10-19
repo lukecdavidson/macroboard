@@ -11,8 +11,31 @@ ui = UInput()
 # Dictionary to assign keycodes to sound files
 bind_dict = {
         'KEY_Q': ['web','https://www.youtube.com'],
-        'KEY_W': ['input',[56,62]],
-        'KEY_E': ['test','test']
+        'KEY_W': ['placeholder','placeholder'],
+        'KEY_E': ['placeholder','placeholder'],
+        'KEY_R': ['placeholder','placeholder'],
+        'KEY_T': ['placeholder','placeholder'],
+        'KEY_Y': ['placeholder','placeholder'],
+        'KEY_U': ['placeholder','placeholder'],
+        'KEY_I': ['placeholder','placeholder'],
+        'KEY_O': ['placeholder','placeholder'],
+        'KEY_P': ['placeholder','placeholder'],
+        'KEY_A': ['placeholder','placeholder'],
+        'KEY_S': ['placeholder','placeholder'],
+        'KEY_D': ['placeholder','placeholder'],
+        'KEY_F': ['placeholder','placeholder'],
+        'KEY_G': ['placeholder','placeholder'],
+        'KEY_H': ['placeholder','placeholder'],
+        'KEY_J': ['placeholder','placeholder'],
+        'KEY_K': ['placeholder','placeholder'],
+        'KEY_L': ['placeholder','placeholder'],
+        'KEY_Z': ['placeholder','placeholder'],
+        'KEY_X': ['input',[56,62]],
+        'KEY_C': ['placeholder','placeholder'],
+        'KEY_V': ['placeholder','placeholder'],
+        'KEY_B': ['placeholder','placeholder'],
+        'KEY_N': ['placeholder','placeholder'],
+        'KEY_M': ['placeholder','placeholder'],
         }
 
 
