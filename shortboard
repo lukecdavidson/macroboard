@@ -10,13 +10,12 @@ ui = UInput()
 
 # Dictionary to assign keycodes to sound files
 bind_dict = {
-        'KEY_Q': ('web','https://www.youtube.com'),
-        'KEY_W': ('input','press A'),
-        'KEY_E': ('input','press B')
+        'KEY_Q': ['web','https://www.youtube.com'],
+        'KEY_W': ['input',[56,62]]
         }
 
 
-## Define keystrokes and actions
+## Loop to read input from device 
 for event in dev.read_loop():
     if event.type == ecodes.EV_KEY:
         key = categorize(event)
@@ -27,12 +26,16 @@ for event in dev.read_loop():
                 print('Implement rebind function here')
             else:
                 if key.keycode in bind_dict:
+                    ## bind is assisgned the value of the second item in the tuple within the bind_dict
                     bind = bind_dict[key.keycode][1]
                     if bind_dict[key.keycode][0] == 'input':
-                        print('Implement input')
-#                        keypress = 
-#                        ui.write(ecodes.EV_KEY, key.scancode, 1)
-#                        ui.write(ecodes.EV_KEY, key.scancode, 0)
+                        ## write the key specified in the bind_dict
+                        for i in bind:
+                            ui.write(ecodes.EV_KEY, i, 1)
+                            ui.syn()
+                        for i in bind:
+                            ui.write(ecodes.EV_KEY, i, 0)
+                            ui.syn()
                     elif bind_dict[key.keycode][0] == 'web':
                         webbrowser.open(bind,new=2,autoraise=True)
                 else:
