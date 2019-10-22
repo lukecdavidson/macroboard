@@ -34,7 +34,8 @@ class MacroBinding:
 q = WebBinding('KEY_Q', 'https://www.youtube.com')
 x = MacroBinding('KEY_X', [56,62])
 
-binded_keys = {'KEY_Q': q, 'KEY_X': x}
+bindings = {'KEY_ESC': esc, 'KEY_F1': f1, 'KEY_F2': f2, 'KEY_F3': f3, 'KEY_F4': f4, 'KEY_F5': f5, 'KEY_F6': f6, 'KEY_F7': f7, 'KEY_F8': f8, 'KEY_F9': f9,
+        'KEY_F10': f10, 'KEY_F11': f11, 'KEY_F12': f12, 'KEY_Q': q, 'KEY_W': w, 'KEY_E': e, 'KEY_R': r, 'KEY_T': t, 'KEY_Y': y, 'KEY_U': u, 'KEY_I': i, 'KEY_O': o, 'KEY_P': p, 'KEY_A': a, 'KEY_S': s, 'KEY_D': d, 'KEY_F': f, 'KEY_G': G, 'KEY_H': h, 'KEY_J': j, 'KEY_K': k, 'KEY_L': l, 'KEY_Z': z, 'KEY_X': x, 'KEY_C': c, 'KEY_V': v, 'KEY_B': b, 'KEY_N': n, 'KEY_M': m}
 
 
 ## Loop to read input from device 
