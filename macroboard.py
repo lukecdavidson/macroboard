@@ -2,6 +2,7 @@
 
 from evdev import UInput, InputDevice, categorize, ecodes
 import webbrowser
+import subprocess
 from keybinds import bindings
 
 dev = InputDevice('/dev/input/by-id/usb-NOVATEK_Kensington_U+P_Keyboard-event-kbd')
@@ -33,7 +34,8 @@ for event in dev.read_loop():
                     elif bindings[key.keycode][0] == 'web':
                         webbrowser.open(bind,new=2,autoraise=True)
                     elif bindings[key.keycode][0] == 'unassigned':
-                        print('No acton assigned to key')
+                        print('No acton assigned to ' + key.keycode)
+                        subprocess.call(['notify-send', '-u', 'low', 'MacroBoard', 'No Action Assigned to ' + key.keycode])
                     else:
                         print('Key must be a web or input type. Key is currently set to the type: ' + bindings[key.keycode][0])
                 else:
