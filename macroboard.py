@@ -35,13 +35,8 @@ def execute_bind():
     if key.keycode in config:
         if config[key.keycode]['Type'] == 'macro':
             macro_string = config[key.keycode]['Value']
-            macro_list = macro_string.split(" ")
-            macro = ['KEY_' + s for s in macro_list]
+            macro = macro_string.split(" ")
             write_macro(macro)
-        elif config[key.keycode]['Type'] == 'string':
-            string_string = config[key.keycode]['Value']
-            string = string_string.split(" ")
-            write_string(string)
         elif config[key.keycode]['Type'] == 'web':
             web = config[key.keycode]
             website = web['Value']
