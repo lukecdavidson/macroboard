@@ -11,7 +11,7 @@ ui = UInput()
 
 
 ## write the key specified in the bind_dict
-def write_input(): 
+def write_input(bind): 
     for i in bind:
         key_number = ecodes.ecodes[i]
         ui.write(ecodes.EV_KEY, key_number, 1)
@@ -27,7 +27,7 @@ def execute_bind():
     if key.keycode in bindings:
         bind = bindings[key.keycode][1]
         if bindings[key.keycode][0] == 'input':
-            write_input()
+            write_input(bind)
         elif bindings[key.keycode][0] == 'web':
             webbrowser.open(bind,new=2,autoraise=True)
         elif bindings[key.keycode][0] == 'unassigned':
