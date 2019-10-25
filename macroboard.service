@@ -1,0 +1,10 @@
+[Unit]
+Description=Run macroboard python script
+
+[Service]
+Type=simple
+WorkingDirectory=/home/luke/Projects/macroboard/
+ExecStart=/home/luke/Projects/macroboard/macroboard.py
+
+[Install]
+WantedBy=multi-user.target

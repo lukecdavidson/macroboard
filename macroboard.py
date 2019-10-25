@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python -u
 
 from evdev import UInput, InputDevice, categorize, ecodes
 import webbrowser
